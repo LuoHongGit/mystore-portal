@@ -423,7 +423,7 @@ const stringify = function(object, options) {
         encoder : utils.encode,
         filter: null,
         sort: null,
-        allowDots : true,
+        allowDots : false,
         serializeDate: null,
         formatter : utils.formatter,
         encodeValuesOnly: true
@@ -531,9 +531,14 @@ const ly = leyou = {
         }
         return "";
     },
+
     /**
      * 发起ajax请求工具，底层依然是axios
      */
+    verify(){
+      return ly.http("/auth/verify");
+    },
+
     http: axios,
     store: {
         set(key, value) {
